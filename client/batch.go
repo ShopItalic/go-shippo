@@ -9,7 +9,7 @@ import (
 	"github.com/coldbrewcloud/go-shippo/models"
 )
 
-func (c *Client) CreateBatch(input []*models.BatchInput) (*models.Batch, error) {
+func (c *Client) CreateBatch(input *models.BatchInput) (*models.Batch, error) {
 	if input == nil {
 		return nil, errors.New("nil batch input")
 	}
