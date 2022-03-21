@@ -9,6 +9,16 @@ import (
 	"github.com/coldbrewcloud/go-shippo/models"
 )
 
+func (c *Client) CreateBatch(input []*models.BatchInput) (*models.Batch, error) {
+	if input == nil {
+		return nil, errors.New("nil batch input")
+	}
+
+	output := &models.Batch{}
+	err := c.do(http.MethodPost, "/batches/", input, output)
+	return output, err
+}
+
 // RetrieveBatch retrieves an existing batch. BatchShipments are displayed 100 at a time.
 // You can iterate through each "page" by specifying non-zero value to page parameter.
 // You can also filter based on BatchShipment status using objectResultsFilter parameter
