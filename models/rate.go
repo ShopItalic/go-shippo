@@ -3,6 +3,7 @@ package models
 // See https://goshippo.com/docs/reference#rates
 type Rate struct {
 	CommonOutputFields
+	Shipment         string           `json:"shipment"`
 	Attributes       []string         `json:"attributes"`
 	AmountLocal      string           `json:"amount_local"`
 	CurrencyLocal    string           `json:"currency_local"`
